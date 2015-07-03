@@ -1,4 +1,4 @@
-var db = require('database.js');
+var db = require('../database.js');
 exports.todos = {};
 
 exports.todos.all = function(req, res) {
