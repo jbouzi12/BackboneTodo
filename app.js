@@ -6,11 +6,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var dbUrl = "todo";
-var collections = ["todos"];
-var mongojs = require('mongojs');
-var db = mongojs(dbUrl, collections);
-
 var routes = require('./routes/index');
 var todos = require('./routes/todos');
 
