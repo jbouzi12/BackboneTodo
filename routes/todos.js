@@ -17,7 +17,7 @@ exports.todos.all = function(req, res) {
 
 exports.todos.one = function(req, res) {
   var taskId = db.title(req.params.id);
-  db.todos.findOne({"title":taskId}, function(err, task) {
+  db.todos.findOne({ "_id" : db.ObjectId(req.params.id) }, function(err, task) {
     if (err) {
       console.log("error occured: ", err);
       return;
