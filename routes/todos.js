@@ -13,4 +13,20 @@ exports.todos.all = function(req, res) {
     res.json(response);
   });
 
-}
+};
+
+exports.todos.one = function(req, res) {
+  var taskTitle = db.title(req.params.title);
+  db.todos.findOne({"title":taskTitle}, function(err, task) {
+    if (err) {
+      console.log("error occured: ", err);
+      return;
+    }
+    var response = {
+      task: task
+    };
+
+    res.json(response);
+
+  });
+};
