@@ -25,18 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', routes);
-app.get('/todos', function(req, res) {
-  db.todos.find({}, function(err, tasks) {
-    if (err) {
-      console.log('error occured: ', error);
-      return;
-    }
-    var response = {
-      tasks: tasks
-    };
-    res.json(response);
-  });
-});
+app.get('/todos', routes.todos.all);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
