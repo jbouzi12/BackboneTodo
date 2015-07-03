@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.get('/', routes.todos.all);
 app.get('/:id', routes.todos.one);
+app.post('/', routes.todos.create);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
