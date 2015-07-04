@@ -13,6 +13,7 @@ var taskCollection = Backbone.Model.extend({
 });
 
 var TaskView = Backbone.View.extend({
+	
 	tagName: "li",
 
 	className: "task",
@@ -27,12 +28,17 @@ var TaskView = Backbone.View.extend({
 });
 
 var TaskCollectionView = Backbone.View.extend({
+	
 	tagName: "ul",
+	
 	className: "tasks",
+	
 	render: function() {
 		this.collection.each(function(task){
 			var taskView = new TaskView({ model: task });
-			this.$el.append(taskView.render().$el);
-		},this)
+			this.$el.append(taskView.render().el);
+		},this);
+
+		return this;
 	}
 });
