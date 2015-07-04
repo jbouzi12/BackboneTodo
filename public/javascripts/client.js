@@ -1,4 +1,4 @@
-var task = Backbone.Model.extend({
+var Task = Backbone.Model.extend({
 	idAttribute:"_id",
 	defaults: {
 		title:'', 
@@ -7,4 +7,7 @@ var task = Backbone.Model.extend({
 
 });
 
-var tasks = Backbone.Model.extend({})
+var taskCollection = Backbone.Model.extend({
+	model: Task,
+	url: "/"
+})
