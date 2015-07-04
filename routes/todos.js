@@ -28,7 +28,4 @@ exports.todos.one = function(req, res) {
 exports.todos.create = function(req, res) {
   res.json(req.body);
   db.todos.save(req.body);
-  // db.todos.insert( {'title':'', 'completed':false}, function(err, task){
-
-  // });
 };
