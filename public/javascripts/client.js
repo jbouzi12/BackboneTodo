@@ -43,3 +43,15 @@ var TaskCollectionView = Backbone.View.extend({
 		return this;
 	}
 });
+
+var AppRouter = Backbone.Router.extend({
+	routes: {
+		"":"index"
+	},
+	index: function() {
+		var collection = new TaskCollection();
+		collection.fetch();
+		var view = new TaskCollectionView({collection: collection});
+		$('.app').html(view.render().el);
+	}
+});
