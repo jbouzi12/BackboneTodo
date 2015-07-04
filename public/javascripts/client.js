@@ -17,10 +17,12 @@ var TaskView = Backbone.View.extend({
 
 	className: "task",
 	
-	template: _.template($(#tasktemplate).html()),
+	template: _.template($('#tasktemplate').html()),
 	
 	render: function(){
-		this.$el.html(this.template(this.model.toJSON()));
-		return this;
+      var compiled = Handlebars.compile(this.template);
+      var html = compiled(this.model.attributes);
+      this.$el.html(html);
+      return this;
 	}
 });
