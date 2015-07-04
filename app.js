@@ -6,7 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes');
+var routes = require('./routes/todos');
 
 var app = express();
 
@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.get('/', routes.index);
-app.get('/todos', routes.todos.all);
+app.get('/todos', routes.todos.all)
 app.get('/todos/:id', routes.todos.one);
 app.post('/todos', routes.todos.create);
 
