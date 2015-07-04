@@ -7,9 +7,9 @@ var Task = Backbone.Model.extend({
 
 });
 
-var taskCollection = Backbone.Model.extend({
+var TaskCollection = Backbone.Collection.extend({
 	model: Task,
-	url: "/"
+	url: "/todos"
 });
 
 var TaskView = Backbone.View.extend({
@@ -19,10 +19,11 @@ var TaskView = Backbone.View.extend({
 	className: "task",
 	
 	render: function(){
-      var template = $('tasktemplate').html();
+      var template = $('#tasktemplate').html();
       var compiled = Handlebars.compile(template);
       var html = compiled(this.model.attributes);
       this.$el.html(html);
+      console.log(this);
       return this;
 	}
 });
