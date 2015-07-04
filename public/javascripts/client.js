@@ -17,12 +17,22 @@ var TaskView = Backbone.View.extend({
 
 	className: "task",
 	
-	template: _.template($('#tasktemplate').html()),
-	
 	render: function(){
-      var compiled = Handlebars.compile(this.template);
+      var template = $('tasktemplate').html();
+      var compiled = Handlebars.compile(template);
       var html = compiled(this.model.attributes);
       this.$el.html(html);
       return this;
+	}
+});
+
+var TaskCollectionView = Backbone.View.extend({
+	tagName: "ul",
+	className: "tasks",
+	render: function() {
+		this.collection.each(function(task){
+			var taskView = new TaskView({ model: task });
+			this.$el.append(taskView.render().$el);
+		},this)
 	}
 });
