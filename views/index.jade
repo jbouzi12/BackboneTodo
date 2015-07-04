@@ -1,6 +1,10 @@
 extends layout
 
 block content
-  h1 Welcome to #{title}
+  .jumbotron
+    .container
+	  h1 Todo With A Twist
+  .container
+    div.app
   script(id="tasktemplate", type="text/x-handlebars")
     {{title}}
