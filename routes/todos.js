@@ -1,6 +1,15 @@
 var db = require('../database.js');
 exports.todos = {};
 
+exports.index = function(req, res) {
+  db.todos.find(function(err, todos) {
+    var data = JSON.stringify(todos);
+    res.render("index", {
+      appData: data
+    });
+  });
+};
+
 exports.todos.all = function(req, res) {
     db.todos.find(function(err, tasks) {
     if (err) {
