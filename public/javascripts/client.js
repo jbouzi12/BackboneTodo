@@ -54,8 +54,8 @@ var AppRouter = Backbone.Router.extend({
 		"":"index"
 	},
 	index: function() {
-		var collection = new TaskCollection();
-		collection.fetch({reset: true});
+		var data = JSON.parse($('#initialize_content').html());
+		var collection = new TaskCollection(data);
 		var view = new TaskCollectionView({collection: collection});
 		$('.app').html(view.render().el);
 	}
