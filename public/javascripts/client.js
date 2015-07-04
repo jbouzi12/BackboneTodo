@@ -29,6 +29,10 @@ var TaskView = Backbone.View.extend({
 });
 
 var TaskCollectionView = Backbone.View.extend({
+
+	initialize: function(){
+		this.listenTo(this.collection, "reset", this.render);
+	},
 	
 	tagName: "ul",
 	
@@ -50,7 +54,7 @@ var AppRouter = Backbone.Router.extend({
 	},
 	index: function() {
 		var collection = new TaskCollection();
-		collection.fetch();
+		collection.fetch({reset: true});
 		var view = new TaskCollectionView({collection: collection});
 		$('.app').html(view.render().el);
 	}
