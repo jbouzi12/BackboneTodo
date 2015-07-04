@@ -10,4 +10,4 @@ var Task = Backbone.Model.extend({
 var taskCollection = Backbone.Model.extend({
 	model: Task,
 	url: "/"
-})
+});
