@@ -36,5 +36,9 @@ exports.todos.one = function(req, res) {
 
 exports.todos.create = function(req, res) {
   res.json(req.body);
-  db.todos.save(req.body);
+  db.todos.save({
+    title: req.body.title,
+    completed: false
+  });
+  res.redirect('/');
 };
