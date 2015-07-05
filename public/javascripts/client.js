@@ -50,6 +50,16 @@ var TaskCollectionView = Backbone.View.extend({
 });
 
 var AppRouter = Backbone.Router.extend({
+	
+	initialize: function() {
+		this._setupCollection();
+	},
+
+	_setupCollection: function() {
+		if (this.collection) return;
+		var data = $('#initialize_content').html();
+		var collection = new TaskCollectionView(JSON.parse(data));
+	},
 	routes: {
 		"":"index"
 	},
