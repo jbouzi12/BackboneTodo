@@ -18,8 +18,33 @@ a {
 
 .tasks {
 	list-style: none;
-	width: 30%;
-	font-size: 25px;
+	width: 50%;
+	font-size: 18px;
+}
+.view {
+	width: 100%;
+}
+span.destroy, span.complete {
+	transition: .3s ease-in;
+	-webkit-transition: .3s ease-in;
+	
+}
+span.destroy {
+	float: right;
+	color: rgba(199, 10, 10, 0.17);
+}
+
+span.destroy:hover {
+	color:rgb(249, 34, 34);
+	cursor: pointer;
+}
+span.complete {
+	color: rgba(0, 128, 0, 0.4);
+	margin-right: 10px;
+}
+span.complete:hover {
+	color: rgba(34, 218, 34, 1);
+	cursor: pointer;
 }
 .task {
 	padding: 10px;
@@ -27,3 +52,4 @@ a {
 .completed {
 	border-left: 5px solid rgb(8, 247, 8);
 }
+
