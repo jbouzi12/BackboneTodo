@@ -6,9 +6,9 @@ block content
 	.jumbotron
 		.container
 			h1 Todo With A Twist
-				span.glyphicon.glyphicon-pencil
-			div.input-group
-				input#new-task.form-control(type='text',placeholder="Add a New Task")
+			form(action="/todos", method="post")
+				div.input-group
+					input#new-task.form-control(type='text',placeholder="Add a New Task")
 	.container
 		div.app
 	script(id="tasktemplate", type="text/x-handlebars")
