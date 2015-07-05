@@ -1,5 +1,7 @@
+var myApp = myApp || {};
+
 $(function(){
 	// Initialize client with backbone
-	new AppRouter();
+	myApp.AppRouter = new AppRouter();
 	Backbone.history.start();
 });
