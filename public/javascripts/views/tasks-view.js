@@ -16,7 +16,7 @@ var myApp = myApp || {};
 		render: function() {
 			this.$el.html("");
 			this.collection.each(function(task){
-				var taskView = new TaskView({ model: task });
+				var taskView = new myApp.TaskView({ model: task });
 				this.$el.append(taskView.render().el);
 			},this);
 

@@ -60,7 +60,7 @@ var AppRouter = Backbone.Router.extend({
 			return;
 		}else {
 			var data = $('#initialize_content').html();
-			this.collection = new TaskCollection(JSON.parse(data));	
+			this.collection = new myApp.TaskCollection(JSON.parse(data));	
 		}
 	},
 
@@ -73,7 +73,7 @@ var AppRouter = Backbone.Router.extend({
 	},
 
 	index: function() {
-		var view = new TaskCollectionView({collection: this.collection});
+		var view = new myApp.TaskCollectionView({collection: this.collection});
 		this._renderView(view);
 	}
 });

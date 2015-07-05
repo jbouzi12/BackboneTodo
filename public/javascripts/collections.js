@@ -3,7 +3,7 @@ var myApp = myApp || {};
 (function() {
 	
 	myApp.TaskCollection = Backbone.Collection.extend({
-		model: Task,
+		model: myApp.Task,
 		url: "/todos"
 	});
 
