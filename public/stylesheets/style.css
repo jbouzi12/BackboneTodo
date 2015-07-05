@@ -10,8 +10,20 @@ a {
 #initialize_content {
 	display: none;
 }
-.jumbotron {
+.jumbotron, .task {
 	-webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.26),0 2px 10px 0 rgba(0,0,0,.16);
 	-moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.26),0 2px 10px 0 rgba(0,0,0,.16);
 	box-shadow:0 2px 5px 0 rgba(0,0,0,.26),0 2px 10px 0 rgba(0,0,0,.16);
+}
+
+.tasks {
+	list-style: none;
+	width: 30%;
+	font-size: 25px;
+}
+.task {
+	padding: 10px;
+}
+.completed {
+	border-left: 5px solid rgb(8, 247, 8);
 }
