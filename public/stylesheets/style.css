@@ -6,3 +6,50 @@ body {
 a {
   color: #00B7FF;
 }
+
+#initialize_content {
+	display: none;
+}
+.jumbotron, .task {
+	-webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.26),0 2px 10px 0 rgba(0,0,0,.16);
+	-moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.26),0 2px 10px 0 rgba(0,0,0,.16);
+	box-shadow:0 2px 5px 0 rgba(0,0,0,.26),0 2px 10px 0 rgba(0,0,0,.16);
+}
+
+.tasks {
+	list-style: none;
+	width: 50%;
+	font-size: 18px;
+}
+.view {
+	width: 100%;
+}
+span.destroy, span.complete {
+	transition: .3s ease-in;
+	-webkit-transition: .3s ease-in;
+	
+}
+span.destroy {
+	float: right;
+	color: rgba(199, 10, 10, 0.17);
+}
+
+span.destroy:hover {
+	color:rgb(249, 34, 34);
+	cursor: pointer;
+}
+span.complete {
+	color: rgba(0, 128, 0, 0.4);
+	margin-right: 10px;
+}
+span.complete:hover {
+	color: rgba(34, 218, 34, 1);
+	cursor: pointer;
+}
+.task {
+	padding: 10px;
+}
+.completed {
+	border-left: 5px solid rgb(8, 247, 8);
+}
+

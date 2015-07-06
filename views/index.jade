@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	div#initialize_content
+		= appData
+	.jumbotron
+		.container
+			h1 Todo With A Twist
+			form(action="/todos", method="post")
+				div.input-group
+					input#new-task.form-control(type='text',name="title",placeholder="Add a New Task")
+	.container
+		div.app
+	script(id="tasktemplate", type="text/x-handlebars")
+		div.view 
+			span.complete &#x2713
+			label {{title}}
+			span.destroy X

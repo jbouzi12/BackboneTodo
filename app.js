@@ -6,13 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var dbUrl = "todo";
-var collections = ["todos"];
-var mongojs = require('mongojs');
-var db = mongojs(dbUrl, collections);
-
-var routes = require('./routes/index');
-var todos = require('./routes/todos');
+var routes = require('./routes/todos');
 
 var app = express();
 
@@ -28,20 +22,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Routes
+app.get('/', routes.index);
+app.get('/todos', routes.todos.all)
+app.get('/todos/:id', routes.todos.one);
+app.put('/todos/:id', routes.todos.markComplete)
+app.post('/todos', routes.todos.create);
+app.delete('/todos/:id', routes.todos.del);
 
-app.use('/', routes);
-app.get('/todos', function(req, res) {
-  db.todos.find({}, function(err, tasks) {
-    if (err) {
-      console.log('error occured: ', error);
-      return;
-    }
-    var response = {
-      tasks: tasks
-    };
-    res.json(response);
-  });
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
