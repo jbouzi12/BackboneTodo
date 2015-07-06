@@ -42,3 +42,9 @@ exports.todos.create = function(req, res) {
   });
   // res.redirect('/');
 };
+
+exports.todos.del = function(req, res) {
+  res.todos.removeById(req.params.id, function(err, docs) {
+
+  });
+};
