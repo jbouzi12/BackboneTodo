@@ -36,6 +36,7 @@ var myApp = myApp || {};
 			this.collection.add(task_model);
 			var view = new myApp.TaskView({model: task_model});
 			this.$el.append(view.render().el);
+			// this.render();
 		},
 
 		create: function(e) {
@@ -47,6 +48,7 @@ var myApp = myApp || {};
 				task.save({title: title, completed: false}, {
 					success: function() {
 						this.$input.val('');
+						// this.render();
 					}
 				})
 			}
