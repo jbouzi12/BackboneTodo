@@ -23,6 +23,7 @@ var myApp = myApp || {};
 			this.$el.html("");
 			this.collection.each(function(task){
 				var taskView = new myApp.TaskView({ model: task });
+				taskView.isComplete();
 				this.$el.append(taskView.render().el);
 			},this);
 
