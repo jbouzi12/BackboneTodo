@@ -7,6 +7,10 @@ var myApp = myApp || {};
 		defaults: {
 			title:'', 
 			completed: false
+		},
+
+		markOff: function() {
+			this.save({ completed: true });
 		}
 
 	});
