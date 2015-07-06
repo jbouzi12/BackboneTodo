@@ -46,7 +46,7 @@ exports.todos.create = function(req, res) {
 exports.todos.markComplete = function(req, res) {
   var taskId = db.ObjectId(req.params.id);
   res.json(req.body);
-  db.tasks.update(
+  db.todos.update(
 
     {'_id': taskId}, 
     {
