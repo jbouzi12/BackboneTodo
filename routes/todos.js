@@ -51,6 +51,6 @@ exports.todos.del = function(req, res) {
       console.log('error occured: ', err);
       return;
     }
-    res.send(task);
+    // res.send(task);
   });
 };
