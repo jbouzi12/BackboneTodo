@@ -26,8 +26,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', routes.index);
 app.get('/todos', routes.todos.all)
 app.get('/todos/:id', routes.todos.one);
+app.put('/todos/:id', routes.todos.markComplete)
 app.post('/todos', routes.todos.create);
 app.delete('/todos/:id', routes.todos.del);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
