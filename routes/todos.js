@@ -40,5 +40,5 @@ exports.todos.create = function(req, res) {
     title: req.body.title,
     completed: false
   });
-  res.redirect('/');
+  // res.redirect('/');
 };
