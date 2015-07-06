@@ -31,6 +31,9 @@ npm install
 npm start
 ```
 
+## TODO:
+
+- fix automatic rendering of new task when creating
 
 
 
