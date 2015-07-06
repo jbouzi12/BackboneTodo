@@ -29,7 +29,6 @@ var myApp = myApp || {};
 				return;
 			} else {
 				this.model.markOff();
-				// this.model.trigger('change');
 				this.$el.addClass('completed');
 			}
 		},
