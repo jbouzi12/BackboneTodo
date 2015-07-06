@@ -7,6 +7,18 @@ var myApp = myApp || {};
 		tagName: "li",
 
 		className: "task",
+
+		events: {
+			'click .destroy': 'deleteTask'
+		},
+
+		initialize: function() {
+			this.listenTo(this.model, 'destroy', this.remove);
+		},
+
+		deleteTask: function() {
+			this.model.destroy();
+		},
 		
 		render: function(){
 	      var template = $('#tasktemplate').html();
