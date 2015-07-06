@@ -43,6 +43,24 @@ exports.todos.create = function(req, res) {
   // res.redirect('/');
 };
 
+exports.todos.markComplete = function(req, res) {
+  var taskId = db.ObjectId(req.params.id);
+  res.json(req.body);
+  db.tasks.update(
+
+    {'_id': taskId}, 
+    {
+      $set: {
+        completed: true
+      }
+    }, function(err, task) {
+      if (err) {
+        console.log('error occured: ', err);
+        return;
+      }
+    });
+};
+
 exports.todos.del = function(req, res) {
   var taskId = db.ObjectId(req.params.id);
   res.json(req.body);
