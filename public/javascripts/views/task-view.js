@@ -24,12 +24,18 @@ var myApp = myApp || {};
 		
 		completeTask: function() {
 
-			if (this.$el.hasClass('completed')) {
+			if (this.model.get('completed') == true) {
 				alert('You have already completed this task. Try getting the others done');
 				return;
 			} else {
-				this.model.save({ completed: true });
-				this.model.trigger('change');
+				this.model.markOff();
+				// this.model.trigger('change');
+				this.$el.addClass('completed');
+			}
+		},
+
+		isComplete: function() {
+			if (this.model.get('completed') == true) {
 				this.$el.addClass('completed');
 			}
 		},
