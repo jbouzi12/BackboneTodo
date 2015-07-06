@@ -44,7 +44,13 @@ exports.todos.create = function(req, res) {
 };
 
 exports.todos.del = function(req, res) {
-  res.todos.removeById(req.params.id, function(err, docs) {
-
+  var taskId = db.ObjectId(req.params.id);
+  res.json(req.body);
+  db.todos.remove({'_id':taskId}, function(err, task){
+    if (err) {
+      console.log('error occured: ', err);
+      return;
+    }
+    res.send(task);
   });
 };
