@@ -33,25 +33,42 @@ var myApp = myApp || {};
 		addOne: function(task) {
 			var title = this.$input.val().trim();
 			var task_model = new myApp.Task({title: title})
+			var possibleMatch = this.collection.where({titlel: title});
 
-			this.collection.add(task_model);
-			var view = new myApp.TaskView({model: task_model});
-			this.$el.append(view.render().el);
+			if (title == possibleMatch.title) {
+				alert("You've already completed that task. Enter a new one");
+				return;
+			} else {
+				this.collection.add(task_model);
+				var view = new myApp.TaskView({model: task_model});
+				this.$el.append(view.render().el);
+
+				
+			}
+
 			// this.render();
 		},
 
 		create: function(e) {
 			e.preventDefault();
-			var title = this.$input.val().trim();
 			var self = this;
+			var title = self.$input.val().trim();
+			var possibleMatch = self.collection.where({title: title});
+
 			if (e.which === ENTER_KEY && title) {
-				var task = new myApp.Task({});
-				task.save({title: title, completed: false}, {
-					success: function() {
-						this.$input.val('');
-						// this.render();
-					}
-				})
+				if (title == possibleMatch.title) {
+					alert("You've already completed that task. Enter a new one");
+					return;
+				} else {
+					var task = new myApp.Task({});
+					task.save({title: title, completed: false}, {
+						success: function() {
+							self.$input.val('');
+							// this.render();
+						}
+					})
+					
+				}
 			}
 		}
 	});
