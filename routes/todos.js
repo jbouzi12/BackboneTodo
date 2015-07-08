@@ -35,12 +35,12 @@ exports.todos.one = function(req, res) {
 };
 
 exports.todos.create = function(req, res) {
-  res.json(req.body);
   db.todos.save({
     title: req.body.title,
     completed: false
-  });
-  // res.redirect('/');
+  }, function(err) {
+    res.redirect('/');
+  })
 };
 
 exports.todos.markComplete = function(req, res) {
