@@ -33,7 +33,7 @@ var myApp = myApp || {};
 		addOne: function(task) {
 			var title = this.$input.val().trim();
 			var task_model = new myApp.Task({title: title})
-			var possibleMatch = this.collection.where({titlel: title});
+			var possibleMatch = this.collection.where({title: title});
 
 			if (title == possibleMatch.title) {
 				alert("You've already completed that task. Enter a new one");
